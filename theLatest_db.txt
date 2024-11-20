@@ -1,0 +1,61 @@
++------------------------+
+| Tables_in_thelatest_db |
++------------------------+
+| comment                |
+| messaging              |
+| post                   |
+| previous_convos        |
+| user                   |
++------------------------+
+          |
+          V
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| user_id  | int          | NO   | PRI | NULL    | auto_increment |
+| username | varchar(50)  | NO   | UNI | NULL    |                |
+| password | varchar(50)  | NO   |     | NULL    |                |
+| fullName | varchar(50)  | NO   |     | NULL    |                |
+| phoneNum | int          | NO   |     | NULL    |                |
+| email    | varchar(255) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+          |
+          V
++---------+------+------+-----+---------+-------+
+| Field   | Type | Null | Key | Default | Extra |
++---------+------+------+-----+---------+-------+
+| post_id | int  | NO   |     | NULL    |       |
+| content | blob | NO   |     | NULL    |       |
+| likes   | int  | YES  |     | NULL    |       |
+| Shares  | int  | NO   |     | NULL    |       |
+| views   | int  | NO   |     | NULL    |       |
+| user_id | int  | NO   | MUL | NULL    |       |
++---------+------+------+-----+---------+-------+
+              |
+	      V
++------------+---------------+------+-----+---------+-------+
+| Field      | Type          | Null | Key | Default | Extra |
++------------+---------------+------+-----+---------+-------+
+| comment_id | int           | NO   |     | NULL    |       |
+| content    | varchar(2000) | NO   |     | NULL    |       |
+| user_id    | int           | NO   | MUL | NULL    |       |
++------------+---------------+------+-----+---------+-------+
+                |
+		V
++------------+---------------+------+-----+---------+-------+
+| Field      | Type          | Null | Key | Default | Extra |
++------------+---------------+------+-----+---------+-------+
+| message_id | int           | NO   | PRI | NULL    |       |
+| message    | varchar(5000) | NO   |     | NULL    |       |
+| user_photo | blob          | NO   |     | NULL    |       |
+| user_id    | int           | NO   | MUL | NULL    |       |
++------------+---------------+------+-----+---------+-------+
+		|
+		V
++------------+------+------+-----+---------+-------+
+| Field      | Type | Null | Key | Default | Extra |
++------------+------+------+-----+---------+-------+
+| convo_id   | int  | NO   |     | NULL    |       |
+| message_id | int  | NO   | MUL | NULL    |       |
+| user_id    | int  | NO   | MUL | NULL    |       |
++------------+------+------+-----+---------+-------+
