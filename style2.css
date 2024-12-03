@@ -58,7 +58,19 @@ input[id = "Email"]{
     font-size: 16px;
     position: relative;
 }
+input[id = "password"]{
+    font-size: 16px;
+    position: relative;
+}
 input[type = "text"]{
+    margin-left: 20px;
+    position: relative;
+    font-size: 16px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #d4d4d4;
+}
+input[type = "password"]{
     margin-left: 20px;
     position: relative;
     font-size: 16px;
