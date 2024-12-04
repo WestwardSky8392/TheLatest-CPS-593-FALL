@@ -1,14 +1,17 @@
-let form1 = document.getElementById("form1")
-form1.addEventListener('submit', submitStuff);
+let form = document.getElementById("form2")
+form.addEventListener('submit', submitStuff);
 
+if(form = null){
+    form = 0;
+}
 function submitStuff(e){
     e.preventDefault();
     const USERsignUp = {
-        username: document.getElementById("firstName").value,
-        password: document.getElementById("lastName").value,
-        username: document.getElementById("Email").value,
-        password: document.getElementById("username").value,
-        username: document.getElementById("password").value
+        FName: document.getElementById("firstName").value,
+        Lname: document.getElementById("lastName").value,
+        Email: document.getElementById("Email").value,
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value
         }
         console.log(USERsignUp)
 }

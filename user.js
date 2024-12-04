@@ -8,4 +8,4 @@ function submitStuff2(e){
         password: document.getElementById("password").value
         }
         console.log(USER)
-}
+    }
