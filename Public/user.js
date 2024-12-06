@@ -9,7 +9,5 @@ function submitStuff2(e){
         }
 
         console.log(USER)
-        //some form of statement will check database is user exists with their password
-        // and let them proceed to the post/media aspect of website.
         window.location.href = ('post.html')
     }
