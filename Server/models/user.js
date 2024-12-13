@@ -24,3 +24,7 @@ const users = [
     email: "KmITch@yahoo.com"
   },
 ]
+
+let getUsers = () => users
+
+module.exports = { getUsers }
