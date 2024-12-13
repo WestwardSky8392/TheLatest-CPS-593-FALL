@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/WestwardSky8392/TheLatest-CPS-593-FALL#readme",
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.9"
   }
 }
