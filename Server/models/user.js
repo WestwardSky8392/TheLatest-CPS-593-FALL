@@ -22,7 +22,7 @@ const users = [
     fullName: "Kevin Mitchell;",
     phoneNum: 5555555555,
     email: "KmITch@yahoo.com"
-  },
+  }
 ]
 
 let getUsers = () => users
