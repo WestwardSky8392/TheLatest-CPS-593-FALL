@@ -1,5 +1,5 @@
 let form = document.getElementById("form2")
-form.addEventListener('submit', submitStuff);
+if ("form2") form.addEventListener('submit', submitStuff);
 
 if(form = null){
     form = 0;
