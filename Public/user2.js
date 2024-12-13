@@ -1,9 +1,6 @@
 let form = document.getElementById("form2")
 if ("form2") form.addEventListener('submit', submitStuff);
 
-if(form = null){
-    form = 0;
-}
 function submitStuff(e){
     e.preventDefault();
     const USERsignUp = {
