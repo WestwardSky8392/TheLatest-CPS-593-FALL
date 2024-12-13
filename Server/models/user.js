@@ -14,11 +14,6 @@ async function createTable() {
 
 createTable()
 
-// USER Example:
-const user = {
-  Username: "cathy123",
-  Password: "icecream"
-}
 
 //check to see if username is in use:
 async function userExists(user) {
