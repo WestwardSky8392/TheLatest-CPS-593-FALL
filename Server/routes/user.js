@@ -42,7 +42,7 @@ router
   .delete('/delete', async(req, res) => {
     try {
       let user = await User.deleteAccount(req.body)
-      res.send({success: "We will miss you! :("})
+      res.send({success: "We're sad to see you go"})
     } catch(err) {
       res.status(401).send({message: err.message})
     }

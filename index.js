@@ -1,12 +1,7 @@
 const express = require('express');
 const app = express();
 
-const userRoutes = require("./server/routes/user");
-
-app.use("/users", userRoutes);
-
-const PORT  = process.env.PORT || 6969
-app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
+const userRoutes = require("./Server/routes/user");
 
 app.use(function(req, res, next){
 res.header("Access-Control-Allow-Origin","*")
@@ -14,3 +9,9 @@ res.header("Access-Control-Allow-Origin", "Origin, X-Requested-With, Content-Typ
 res.header("Access-Control-Allow-Origin","GET, POST, PUT, DELETE, OPTIONS")
 next();
 });
+
+app.use("/users", userRoutes);
+app.use(express.json());
+
+const PORT  = process.env.PORT || 6969
+app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));

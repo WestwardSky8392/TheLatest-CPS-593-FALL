@@ -2,13 +2,12 @@ const con = require("./db_connect")
 
 async function createTable() {
   let sql = `CREATE TABLE IF NOT EXISTS user (
-    user_id INT NOT NULL AUTO_INCREMENT,
-    username VARCHAR(50) NOT NULL UNIQUE,
+    user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
     fullName VARCHAR(50) NOT NULL,
     phoneNum INT NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    CONSTRAINT userPK PRIMARY KEY(userID)
   );`
 
   await con.query(sql)
@@ -75,7 +74,7 @@ async function getEmail(user) {
 async function deleteAccount(user) {
   let sql = `
     DELETE from User
-    WHERE username="${user.Username}"
+    WHERE username="${user.username}"
   `
   await con.query(sql)
 }
