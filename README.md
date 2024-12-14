@@ -9,4 +9,4 @@
   <h2>ERD</h2>
 <img height = 550px src = "https://github.com/user-attachments/files/17613703/The.Latest-2.pdf"></img>
   <h2>Database Tables</h2>
-<img height = 550px src = "https://github.com/user-attachments/files/17613703/The.Latest-2.pdf"></img>
+<img height = 550px src = "Database.png"></img>
