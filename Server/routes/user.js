@@ -7,6 +7,8 @@ router.get('/',(req,res)=>{
         const users = User.getUsers();
         res.send(users);
     }catch(err){
-        res.status(401).send({message : err.message});
+        res.status(401).send({message : error.message});
     }
 });
+
+module.exports = router;

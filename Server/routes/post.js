@@ -7,6 +7,8 @@ router.get('/',(req,res)=>{
         const posts = Post.getPosts();
         res.send(posts);
     }catch(err){
-        res.status(401).send({message : err.message});
+        res.status(401).send({message : error.message});
     }
 });
+
+module.exports = router;
