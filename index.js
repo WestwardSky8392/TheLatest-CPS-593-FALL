@@ -13,5 +13,5 @@ next();
 app.use("/users", userRoutes);
 app.use(express.json());
 
-const PORT  = process.env.PORT || 6969
+const PORT  = process.env.PORT || 6000
 app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));

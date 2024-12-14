@@ -7,7 +7,7 @@ async function createTable() {
     password VARCHAR(50) NOT NULL,
     fullName VARCHAR(50) NOT NULL,
     phoneNum INT NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE
   );`
 
   await con.query(sql)

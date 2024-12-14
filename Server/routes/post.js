@@ -1,14 +1,64 @@
-const express = require('express');
-const Post = require('../models/post');
-const router = express.Router();
+const express = require('express')
+const posts = require("../models/upload")
+const router = express.Router()
 
-router.get('/',(req,res)=>{
-    try{
-        const posts = Post.getPosts();
-        res.send(posts);
-    }catch(err){
-        res.status(401).send({message : error.message});
-    }
-});
+router
+    .get('/', async (req, res) => {
+        try {
+        const post = await posts.getPost()
+        res.send(post); 
+        } catch (err) {
+        res.status(500).send({ message: err.message })
+        }
+    })
 
-module.exports = router;
+    .post('/post', async (req, res) => {
+        try {
+        const { user_id, songDetails } = req.body; 
+        const file = req.file; 
+
+        const post = await upload.uploadpost(user_id, content, post_id)
+        res.status(201).send(post); 
+        } catch (err) {
+        res.status(500).send({ message: err.message })
+        }
+    })
+
+
+    .delete('/:post', async (req, res) => {
+        try {
+        const { post_id } = req.params; 
+        const Delete = await upload.deleteUpload(upload_id);
+
+        if (Delete) {
+            res.send({ success: true, message: 'Post deleted' })
+        } else {
+            res.status(404).send({ success: false, message: 'Post  wasnot found' })
+        }
+        } catch (err) {
+        res.status(500).send({ message: err.message })
+        }
+    })
+    
+    .put('/:post', async (req, res) => {
+        try {
+            const { post_id } = req.params;
+            const update = req.body;
+    
+            if (!update || Object.keys(update).length === 0) {
+                return res.status(400).send({ message: 'No updates provided' })
+            }
+    
+            const works = await uploadModel.updateUpload(post_id, update);
+    
+            if (works) {
+                res.status(200).send({ message: 'Upload updated successfully' })
+            } else {
+                res.status(404).send({ message: 'Upload not found' })
+            }
+        } catch (err) {
+            res.status(500).send({ message: err.message })
+        }
+    })
+
+module.exports = router
