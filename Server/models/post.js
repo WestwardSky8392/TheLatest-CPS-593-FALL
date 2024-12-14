@@ -13,66 +13,48 @@ async function createTable() {
 
 createTable();
 
-// READ in CRUD - Logging in a user
-async function login(user) {
-  let cUser = await userExists(user)
-  if(!cUser[0]) throw Error("Username does not exist!")
-  if(cUser[0].password != user.password) throw Error("Password incorrect!!")
-
-  return cUser[0]
-}
-
-// CREATE for User - registering
-async function register(user) {
-  let cUser = await userExists(user)
-  if(cUser.length > 0) throw Error("Username already in use.")
-  
+// CREATE for Posts
+async function Posting(post) {
   let sql = `
-    INSERT INTO user (username, password, email)
-    VALUES("${user.username}", "${user.password}", "${user.email}")
+    INSERT INTO post (post_id, content, user_id)
+    VALUES("${post.post_id}", "${post.content}", "${post.user_id}")
   `  
   await con.query(sql)
-  let newUser = await login(user)
-  return newUser //issue fixed from class: removed [0] since login function returns this already
+  let newPost = await login(post)
+  return newPost 
 }
 
 //U for Update - Update email of user
-async function updateEmail(user) {
-  let cEmail = await getEmail(user)
-  if(cEmail) throw Error("Email already in use!!")
+async function updateContent(post) {
+  let cContent = await getContent(post)
+  if(cContent) throw Error("Email already in use!!")
 
   let sql = `
-    UPDATE User SET email="${user.email}"
-    WHERE username="${user.username}"
+    UPDATE post SET content="${user.content}"
+    WHERE user_id="${post.username}"
   `
   await con.query(sql)
-  let updatedUser = await userExists(user)
-  return updatedUser[0]
+  let updatedContent = await postExists(post)
+  return updatedContent[0]
 }
 
-async function getEmail(user) {
+async function getPostID(post) {
   let sql = `
-    SELECT email FROM User
-    WHERE email="${user.email}"
+    SELECT post_id FROM post
+    WHERE post_id="${post.post_id}"
   `
-  let email = await con.query(sql)
-  return email[0]
+  let postID = await con.query(sql)
+  return postID
 }
 
 //D for Delete - delete user account
-async function deleteAccount(user) {
+async function deleteContent(post) {
   let sql = `
-    DELETE from User
-    WHERE username="${user.username}"
+    DELETE from post
+    WHERE post="${post.content}"
   `
   await con.query(sql)
 }
 
-// CRUD functions will go here 
-//R for READ -- get all users
-async function getAllUsers() {
-  let sql = `SELECT * FROM user;`
-  return await con.query(sql)
-}
 
-module.exports ={ getAllUsers, login, register, updateEmail, deleteAccount }
+module.exports ={ Posting, updateContent, getPostID, deleteContent }

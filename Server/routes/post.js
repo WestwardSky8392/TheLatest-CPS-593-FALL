@@ -14,8 +14,7 @@ router
 
     .post('/post', async (req, res) => {
         try {
-        const { user_id, songDetails } = req.body; 
-        const file = req.file; 
+        const { user_id, content } = req.body; 
 
         const post = await upload.uploadpost(user_id, content, post_id)
         res.status(201).send(post); 
@@ -28,7 +27,7 @@ router
     .delete('/:post', async (req, res) => {
         try {
         const { post_id } = req.params; 
-        const Delete = await upload.deleteUpload(upload_id);
+        const Delete = await upload.deleteUpload(post_id);
 
         if (Delete) {
             res.send({ success: true, message: 'Post deleted' })
