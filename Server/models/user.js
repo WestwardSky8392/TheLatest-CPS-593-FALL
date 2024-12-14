@@ -1,7 +1,7 @@
-const con = require("./theLatest_db")
+const con = require("./db_connect")
 
 async function createTable() {
-  let sql = `CREATE TABLE IF NOT EXISTS User (
+  let sql = `CREATE TABLE IF NOT EXISTS user (
     user_id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(50) NOT NULL,
@@ -19,8 +19,8 @@ createTable();
 //check to see if username is in use:
 async function userExists(user) {
   let sql = `
-    SELECT * FROM User
-    WHERE username = "${user.Username}"
+    SELECT * FROM user
+    WHERE username = "${user.username}"
   `
   return await con.query(sql)
 }
@@ -29,7 +29,7 @@ async function userExists(user) {
 async function login(user) {
   let cUser = await userExists(user)
   if(!cUser[0]) throw Error("Username does not exist!")
-  if(cUser[0].Password != user.Password) throw Error("Password incorrect!!")
+  if(cUser[0].password != user.password) throw Error("Password incorrect!!")
 
   return cUser[0]
 }
@@ -41,7 +41,7 @@ async function register(user) {
   
   let sql = `
     INSERT INTO user (username, password, email)
-    VALUES("${user.Username}", "${user.Password}", "${user.Email}")
+    VALUES("${user.username}", "${user.password}", "${user.email}")
   `  
   await con.query(sql)
   let newUser = await login(user)
@@ -54,8 +54,8 @@ async function updateEmail(user) {
   if(cEmail) throw Error("Email already in use!!")
 
   let sql = `
-    UPDATE User SET email="${user.Email}"
-    WHERE username="${user.Username}"
+    UPDATE User SET email="${user.email}"
+    WHERE username="${user.username}"
   `
   await con.query(sql)
   let updatedUser = await userExists(user)
@@ -65,7 +65,7 @@ async function updateEmail(user) {
 async function getEmail(user) {
   let sql = `
     SELECT email FROM User
-    WHERE email="${user.Email}"
+    WHERE email="${user.email}"
   `
   let email = await con.query(sql)
   return email[0]
