@@ -14,7 +14,7 @@ async function createTable() {
   await con.query(sql)
 }
 
-createTable()
+createTable();
 
 //check to see if username is in use:
 async function userExists(user) {
