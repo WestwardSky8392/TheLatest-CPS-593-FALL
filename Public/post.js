@@ -1,13 +1,11 @@
-let form = document.getElementById("form2")
-if (form) form.addEventListener('submit', submitStuff);
+let post = document.getElementById("postForm")
+if (post) post.addEventListener('submit', submitStuff);
 
 function submitStuff(){
-    const USERregister = {
-        username: document.getElementById("username").value,
-        password: document.getElementById("password").value,
-        email: document.getElementById("Email").value,
-        firstName: document.getElementById("firstName").value,
-        lastName: document.getElementById("lastName").value,
+    const USERpost = {
+        content: document.getElementById("content").value,
+        caption: document.getElementById("caption").value,
+
         }
-    fetchData('/register', {USERregister}, 'POST');
+    fetchData('/post', {USERpost}, 'post');
 }

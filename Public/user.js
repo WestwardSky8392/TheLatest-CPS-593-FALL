@@ -9,7 +9,7 @@ function submitStuff(){
         firstName: document.getElementById("firstName").value,
         lastName: document.getElementById("lastName").value,
         }
-    fetchData('/register', {USERregister}, 'POST');
+    fetchData('/register', {USERregister}, 'post');
 }
 
 let form1 = document.getElementById("form1")
@@ -21,9 +21,9 @@ if (form1) form1.addEventListener('submit', submitStuff2);
             password: document.getElementById("password").value
             }
             console.log(USERlogin)
-    fetchData('/login', {USERlogin}, 'POST');
+    fetchData('/login', {USERlogin}, 'post');
     }
-
+//function from final exam
     async function fetchData(route = '', data = {}, methodType) {
         const response = await fetch(`http://localhost:6000${route}`, {
           method: methodType, // *POST, PUT, DELETE, etc.
