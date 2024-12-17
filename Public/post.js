@@ -7,5 +7,5 @@ function submitStuff(){
         caption: document.getElementById("caption").value,
 
         }
-    fetchData('/post', {USERpost}, 'post');
+    fetchData('/post', {USERpost}, 'POST');
 }
