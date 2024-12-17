@@ -28,7 +28,7 @@ async function userExists(user) {
 async function login(user) {
   let cUser = await userExists(user)
   if(!cUser[0]) throw Error("Username does not exist!")
-  if(cUser[0].password != user.password) throw Error("Password incorrect!!")
+  if(cUser[0].password != user.password) throw Error("Incorrect Password")
 
   return cUser[0]
 }
@@ -36,7 +36,7 @@ async function login(user) {
 // CREATE for User - registering
 async function register(user) {
   let cUser = await userExists(user)
-  if(cUser.length > 0) throw Error("Username already in use.")
+  if(cUser.length > 0) throw Error("Username already is already use.")
   
   let sql = `
     INSERT INTO user (username, password, email)
