@@ -1,16 +1,8 @@
 let form = document.getElementById("form2")
 if (form) form.addEventListener('submit', submitStuff);
 
-function submitStuff(e){
-    e.preventDefault();
-    const USERsignUp = {
-        FName: document.getElementById("firstName").value,
-        Lname: document.getElementById("lastName").value,
-        Email: document.getElementById("Email").value,
-        username: document.getElementById("username").value,
-        password: document.getElementById("password").value
-        }
-        console.log(USERsignUp)
+function submitStuff(){
+   fetch()
 }
 
 let form1 = document.getElementById("form1")
