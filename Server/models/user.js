@@ -27,7 +27,7 @@ async function userExists(user) {
 // READ in CRUD - Logging in a user
 async function login(user) {
   let cUser = await userExists(user)
-  if(!cUser[0]) throw Error("Username does not exist!")
+  if(!cUser[0]) throw Error("Username does not exist")
   if(cUser[0].password != user.password) throw Error("Incorrect Password")
 
   return cUser[0]
@@ -40,7 +40,7 @@ async function register(user) {
   
   let sql = `
     INSERT INTO user (username, password, email)
-    VALUES("${user.username}", "${user.password}", "${user.email}")
+    VALUES("${user.username}", "${user.password}", "${user.email}","${user.fullName}")
   `  
   await con.query(sql)
   let newUser = await login(user)
@@ -50,7 +50,7 @@ async function register(user) {
 //U for Update - Update email of user
 async function updateEmail(user) {
   let cEmail = await getEmail(user)
-  if(cEmail) throw Error("Email already in use!!")
+  if(cEmail) throw Error("Email is already in use")
 
   let sql = `
     UPDATE User SET email="${user.email}"
