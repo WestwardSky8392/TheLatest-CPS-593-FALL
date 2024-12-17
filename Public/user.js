@@ -14,7 +14,7 @@ function submitStuff(e){
 }
 
 let form1 = document.getElementById("form1")
-if ("form1") form.addEventListener('submit', submitStuff2);
+if ("form1") form1.addEventListener('submit', submitStuff2);
     function submitStuff2(e){
         e.preventDefault();
         const USERlogin = {
