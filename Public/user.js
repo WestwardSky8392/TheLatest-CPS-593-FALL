@@ -12,3 +12,14 @@ function submitStuff(e){
         }
         console.log(USERsignUp)
 }
+
+let form1 = document.getElementById("form1")
+if ("form1") form.addEventListener('submit', submitStuff2);
+    function submitStuff2(e){
+        e.preventDefault();
+        const USERlogin = {
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
+            }
+            console.log(USERlogin)
+    }
