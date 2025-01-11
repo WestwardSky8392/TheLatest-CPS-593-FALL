@@ -14,8 +14,8 @@
 <br>
 <h4>Key Aspects</h4>
 <ul>
-  <li>Creating objects from frontend</li>
-  <li>Reading those objects through JavaScript</li>
+  <li>Creating Client/Post objects from frontend</li>
+  <li>Using JavaScript to put object info through JSON</li>
   <li>Storging those objects in MYSQL database</li>
   <li>Securing the information</li>
 </ul>
@@ -24,4 +24,4 @@
   <h2>ERD</h2>
 <img height = 550px src = "https://github.com/user-attachments/files/17613703/The.Latest-2.pdf"></img>
   <h2>Database Tables</h2>
-<img height = 550px src = "Database.png"></img>
+<img height = 550px src = ""></img>
