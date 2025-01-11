@@ -24,4 +24,4 @@
   <h2>ERD</h2>
 <img height = 550px src = "https://github.com/user-attachments/files/17613703/The.Latest-2.pdf"></img>
   <h2>Database Tables</h2>
-<img height = 550px src = ""></img>
+<img height = 550px src = "https://github.com/WestwardSky8392/TheLatest-CPS-593-FALL/blob/main/Public/theLatest_db.jpg"></img>
