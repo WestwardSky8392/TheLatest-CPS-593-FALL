@@ -57,4 +57,4 @@ async function deleteContent(post) {
 }
 
 
-module.exports ={ Posting, updateContent, getPostID, deleteContent }
+module.exports ={Posting, updateContent, getPostID, deleteContent }
